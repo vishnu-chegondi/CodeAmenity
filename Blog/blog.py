@@ -16,7 +16,6 @@ def index():
     '''
     articles = get_posts_list()
     content = """#### Welcome to CodeSlips
-    Let us share the knowledge on various technologies.
     """
     content = Markup(markdown(content))
     return render_template('index.html',**locals())
@@ -31,6 +30,13 @@ def post_data(article,post):
     fobj = open(file).read()
     content = Markup(markdown(fobj))
     return render_template('index.html',**locals())
+
+@app.route('/author')
+def author():
+    '''
+    This returns the author information
+    '''
+    return render_template('author.html')
 
 
 if __name__=="__main__":

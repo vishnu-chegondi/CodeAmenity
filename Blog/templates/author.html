@@ -16,7 +16,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <link rel="stylesheet" type="text/css" media="screen" href="{{ url_for('static',filename='index.css') }}" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ url_for('static',filename='author.css') }}" />
     <script src="{{ url_for('static',filename='index.js')}}"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
 
 </head>
 <body>
@@ -47,36 +51,48 @@
         <div class="page-content">
             <!-- Your content goes here -->
             <div class="mdl-grid">
-                <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet holder" style="margin:auto;">
-                <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet left-part">
-                    <h5>Articles</h5>
-                    <hr>
-                    <ul style="padding:0px;">
-                    {% for article,posts in articles.items() %}
-                        <li class="article_list">
-                            <i class="material-icons">
-                                folder
-                            </i>
-                            <span>{{ article }}</span>
-                            <ul>
-                                {% for post in posts %}
-                                    <li class="mdl-list__item post_list">
-                                        <span><a href="/post/{{ article }}/{{ post }}">{{post}}</a></span>   
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        </li>
-                    {% endfor %}
-                    </ul>
+                <div class="mdl-cell mdl-cell--10-col mdl-cell--8-col-tablet align-center">
+                    
+                    <!-- Image card -->
+                    <div class="demo-card-image mdl-card mdl-shadow--2dp">
+                    <div class="mdl-card__title mdl-card--expand">
+                    </div>
+                    <div class="mdl-card__actions">
+                        <span class="demo-card-image__filename">Vishnu Chegondi</span>
+                    </div>
+                    </div>
+
+                    <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
+                        <h4>Developer & Automation Engineer</h4>
+                        <!-- <hr> -->
+                        <div class="mdl-cell mdl-cell--12-col skill">
+                            <p>Python, Unix Shell Scripting</p>
+                        </div>
+                        <div class="mdl-cell mdl-cell--12-col skill">
+                            <p>Selenium, Ansible</p>
+                        </div>
+                        <div class="mdl-cell mdl-cell--12-col skill">
+                            <p>AWS, Docker</p>
+                        </div>
+                        <div class="mdl-cell mdl-cell--12-col skill">
+                        <p>Django, Flask</p>
+                        </div>
+
+                        <h4>Experience</h4>
+                        <!-- <hr> -->
+                        <div class="mdl-cell mdl-cell--12-col skill">
+                            <p>Working as Automation Engineer for Secure-24 from past one year</p>
+                        </div>
+                        <div class="mdl-cell mdl-cell--12-col skill">
+                            <p>Worked as Python developer for TCS for 2.6 years</p>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="mdl-cell mdl-cell--10-col mdl-cell--12-col-tablet">
-                    {{ content }}
-                </div>
-                </div>
-            </div>
+            </div>            
         </div>
-        </main>
-    </div>
+    </main>
+</div>
 
 </body>
 </html>

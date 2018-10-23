@@ -4,10 +4,6 @@
 
 Ansible is an It automation tool which automates the repetitive work and simplifies the work. The main difference between ansible and other automation tools like puppet is it is agent less *(means no software is required to be installed on the client for ansible machine to work)*.Check this page for [installing ansible](http://docs.ansible.com/ansible/latest/intro_installation.html)
 
-
-
-###### Below explains the process to connect to the client using ansible and install httpd web server.
-
 #### Inventory
 
 -----------------------------------------------
