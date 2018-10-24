@@ -1,10 +1,10 @@
-### Anisble
+#### Anisble
 
 -----
 
 Ansible is an It automation tool which automates the repetitive work and simplifies the work. The main difference between ansible and other automation tools like puppet is it is agent less *(means no software is required to be installed on the client for ansible machine to work)*.Check this page for [installing ansible](http://docs.ansible.com/ansible/latest/intro_installation.html)
 
-#### Inventory
+##### Inventory
 
 -----------------------------------------------
 
@@ -23,7 +23,7 @@ Example
     ansible_user=root
     ansible_ssh_pass=ubuntu
 
-#### Variables
+##### Variables
 
 ------------------------------------
 
@@ -46,7 +46,7 @@ This hosts.json can be encrypted using the ansible-vault for storing sensitive i
     ansible-vault encrypt hosts.json
 
 
-#### Playbooks
+##### Playbooks
 
 ----------------------------------------
 
@@ -74,17 +74,17 @@ This first_playbook.yml file is saved and ran for pinging the servers using the 
 
 Here, if you observe above if we use ansible-vault to encrypt, all the files used in the above playbook should be encrypted with the same password. If we do not encrypt, no need of *--ask-vault-pass* for the command.
 
-#### Output
+##### Output
 
 --------------------------------------------------
 
-    PLAY [hosts] **************************************************************************************************************
+    PLAY [hosts] **********************************************************
 
-    TASK [Gathering Facts] **************************************************************************************************************
+    TASK [Gathering Facts] ************************************************
     ok: [121.10.8.14]
 
-    TASK [ping hosts server] **************************************************************************************************************
+    TASK [ping hosts server] **********************************************
     ok: [121.10.8.14]
 
-    PLAY RECAP **************************************************************************************************************
+    PLAY RECAP ************************************************************
     121.10.8.14              : ok=2    changed=0    unreachable=0    failed=0

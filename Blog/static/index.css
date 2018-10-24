@@ -9,6 +9,7 @@
     align-self: center;
     box-shadow: 0px 2px 5px #cacaca;
     background: #fff;
+    width: 90%;
 }
 body{
     background: #eaeaea;
@@ -44,10 +45,20 @@ body{
 .article_list>ul{
     display: none;
 }
-.material-icons{
+.folder{
     float: left;
 }
 .mdl-cell--10-col,.mdl-cell--2-col{
-    height: 570px;
+    height: 600px;
+    margin: 0px;
     overflow: auto;
+}
+.mdl-cell--10-col{
+    padding-left: 30px;
+}
+img{
+    width: 95%;
+}
+.icons{
+    margin-right: 10px;
 }
