@@ -15,9 +15,9 @@ def index():
     This returns the Index page
     '''
     articles = get_posts_list()
-    content = """#### Welcome to CodeSlips
-    """
-    content = Markup(markdown(content))
+    # content = """#### Welcome to CodeSlips
+    # """
+    # content = Markup(markdown(content))
     return render_template('index.html',**locals())
 
 @app.route('/post/<article>/<post>')
