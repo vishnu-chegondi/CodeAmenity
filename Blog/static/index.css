@@ -62,3 +62,9 @@ img{
 .icons{
     margin-right: 10px;
 }
+@media only screen and (max-width:840px){
+    .left-part,.mdl-cell--10-col{
+        height: auto;
+        padding-left: 10px;
+    }
+}
