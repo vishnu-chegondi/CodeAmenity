@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>CodeSlips</title>
+    <title>CodeAmenity</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- hosted material design -->
@@ -49,7 +49,7 @@
         <header class="mdl-layout__header" id="header">
           <div class="mdl-layout__header-row">
             <!-- Title -->
-            <span class="mdl-layout-title">CodeSlips</span>
+            <span class="mdl-layout-title">CodeAmenity</span>
             <!-- Add spacer, to align navigation to the right -->
             <div class="mdl-layout-spacer"></div>
             <!-- Navigation. We hide it in small screens. -->
@@ -60,14 +60,14 @@
                 <a class="mdl-navigation__link" href="/author"><i class="material-icons" title="author">
                         account_circle
                         </i></a>
-                <a class="mdl-navigation__link" target="_blank" href="https://github.com/vishnu-chegondi"><i class="material-icons" title="github">
+                <!-- <a class="mdl-navigation__link" target="_blank" href="https://github.com/vishnu-chegondi"><i class="material-icons" title="github">
                         code
-                        </i></a>
+                        </i></a> -->
             </nav>
           </div>
         </header>
         <div class="mdl-layout__drawer mdl-layout--small-screen-only">
-          <span class="mdl-layout-title">CodeSlips</span>
+          <span class="mdl-layout-title">CodeAmenity</span>
           <nav class="mdl-navigation">
             <a class="mdl-navigation__link" href="/"><i class="material-icons icons" title="Home">
                     home
@@ -75,19 +75,19 @@
             <a class="mdl-navigation__link" href="/author"><i class="material-icons icons" title="author">
                     account_circle
                     </i>Author</a>
-            <a class="mdl-navigation__link" target="_blank" href="https://github.com/vishnu-chegondi"><i class="material-icons icons" title="github">
+            <!-- <a class="mdl-navigation__link" target="_blank" href="https://github.com/vishnu-chegondi"><i class="material-icons icons" title="github">
                     code
-                    </i>Github</a>
+                    </i>Github</a> -->
           </nav>
         </div>
         <main class="mdl-layout__content">
                 <div class="page-content">
                     <!-- Your content goes here -->
                     <div class="mdl-grid">
-                        <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet holder" style="margin:auto;">
-                        <div class="mdl-cell mdl-cell--2-col mdl-cell--10-col-tablet mdl-cell--10-col-phone left-part">
-                            <h5>Articles</h5>
-                            <hr>
+                        <div class="mdl-cell mdl-cell--9-col mdl-cell--8-col-tablet" style="margin:auto;">
+                        <div class="mdl-cell mdl-cell--3-col mdl-cell--10-col-tablet mdl-cell--10-col-phone left-part">
+                            <h4>Articles</h4>
+                            <!-- <hr> -->
                             <ul style="padding:0px;">
                             {% for article,posts in articles.items() %}
                                 <li class="article_list">
@@ -106,7 +106,7 @@
                             {% endfor %}
                             </ul>
                         </div>
-                        <div class="mdl-cell mdl-cell--10-col mdl-cell--10-col-tablet">
+                        <div class="mdl-cell mdl-cell--9-col mdl-cell--10-col-tablet right-part">
                             {% if content %}
                             {{ content }}
                             
@@ -114,7 +114,18 @@
                             <div id="disqus_thread"></div>
         
                             {% else %}
-                                <h4>Welcome to CodeSlips</h4>
+                                <h4>Projects</h4>
+                                <!-- <hr> -->
+                                {% for project,data in projects.iteritems() %}
+                                <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet project">
+                                    <h6><a href="{{ data['gitlink'] }}" target="_blank"><i class="material-icons" style="float: right;">
+                                        link
+                                    </i></a><b>{{ data['name'] }}</b></h6>
+                                    <hr>
+                                    <p>{{ data['description'] }}</p>
+                                    <b>Technologies: </b><pre>{{ data['tech'] }}</pre>
+                                </div>
+                                {% endfor %}
                             {% endif %}
                                 
                         </div>

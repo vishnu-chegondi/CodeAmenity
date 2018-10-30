@@ -3,7 +3,7 @@ import os
 
 sys.path.append(os.path.dirname(__file__))
 from flask import Flask,render_template,Markup
-from posts import get_posts_list
+from posts import get_posts_list, get_projects_list
 from markdown import markdown
 
 app = Flask(__name__)
@@ -15,6 +15,7 @@ def index():
     This returns the Index page
     '''
     articles = get_posts_list()
+    projects = get_projects_list()
     # content = """#### Welcome to CodeSlips
     # """
     # content = Markup(markdown(content))
