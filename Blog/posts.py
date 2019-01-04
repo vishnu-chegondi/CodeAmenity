@@ -1,26 +1,32 @@
 from ConfigParser import RawConfigParser
 import os
+import boto3
 
-def get_articles_list(articles_dir):
-    articles = os.listdir(articles_dir)
+def get_articles_list():
+    client = boto3.client('s3')
+    response = client.list_objects(
+        Bucket='codeamenity',
+        Prefix='articles/',
+    )
+    keys = [str(i['Key']) for i in response['Contents']]
+    articles = {}
+    for key in keys:
+        tmp = key.split('/')
+        if tmp not in articles.keys():
+            articles[tmp[1]] = []
+        articles[tmp[1]].append(tmp[2].split('.')[0])
     return articles
-
-def get_posts_list():
-    posts={}
-    present_dir = os.path.dirname(__file__)
-    articles_dir = os.path.join(present_dir,'articles')
-    articles = get_articles_list(articles_dir)
-    for article in articles:
-        article_path = os.path.join(articles_dir,article)
-        posts_temp = os.listdir(article_path)
-        posts_temp = [os.path.splitext(i)[0] for i in posts_temp]
-        posts[article]=posts_temp
-    return posts
 
 def get_projects_list():
     config = RawConfigParser()
-    projects_file = os.path.join(os.path.dirname(__file__),'projects','projects.ini')
-    config.read(projects_file)
+    key = 'projects/projects.ini'
+    client = boto3.client('s3')
+    response = client.get_object(Bucket='codeamenity',Key=key)
+    content = response["Body"].read()
+    filename = os.path.join("data","projects.ini")
+    with open(filename,"w+") as fp:
+        fp.write(content)
+    config.read(filename)
     projects={}
     for project in config.get('projects','projects').split(','):
         projects[project]={}
