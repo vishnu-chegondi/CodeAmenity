@@ -1,6 +1,7 @@
 from ConfigParser import RawConfigParser
 import os
 import boto3
+import tempfile
 
 def get_articles_list():
     client = boto3.client('s3')
@@ -23,7 +24,7 @@ def get_projects_list():
     client = boto3.client('s3')
     response = client.get_object(Bucket='codeamenity',Key=key)
     content = response["Body"].read()
-    filename = os.path.join(os.path.dirname(os.path.realpath(__file__)),"data","projects.ini")
+    filename = tempfile.NamedTemporaryFile().name
     with open(filename,"w+") as fp:
         fp.write(content)
     config.read(filename)
