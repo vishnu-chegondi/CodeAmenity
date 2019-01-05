@@ -23,7 +23,7 @@ def get_projects_list():
     client = boto3.client('s3')
     response = client.get_object(Bucket='codeamenity',Key=key)
     content = response["Body"].read()
-    filename = os.path.join("data","projects.ini")
+    filename = os.path.join(os.path.realpath(__file__),"data","projects.ini")
     with open(filename,"w+") as fp:
         fp.write(content)
     config.read(filename)
