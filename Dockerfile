@@ -22,8 +22,6 @@ RUN pip install --trusted-host pypi.python.org -r requirements.txt
 
 # Add the app to the folder
 
-WORKDIR /app
-
 ADD ./Blog /var/www/Blog/
 
 ADD ./blog.wsgi /var/www/
