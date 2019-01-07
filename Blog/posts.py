@@ -13,7 +13,7 @@ def get_articles_list():
     articles = {}
     for key in keys:
         tmp = key.split('/')
-        if tmp not in articles.keys():
+        if tmp[1] not in articles.keys():
             articles[tmp[1]] = []
         articles[tmp[1]].append(tmp[2].split('.')[0])
     return articles
